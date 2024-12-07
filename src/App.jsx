@@ -1,36 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import GitHubRepos from './repos'
+import GitHubRepos2 from './repos2'
+import React from 'react';
+import { Routes, Route, Link, useLocation} from 'react-router-dom';
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    
+      <Routes>
+        <Route path="/" element={<GitHubRepos2 />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+  );
 }
 
-export default App
+
+function About() {
+  const location = useLocation();
+  const { repo } = location.state || {};
+
+  if (!repo) {
+    return <p>No repository data available</p>;
+  }
+
+  return (
+    <div>
+      <h1>About Repository</h1>
+      <p><strong>Name:</strong> {repo.name}</p>
+      <p><strong>Fullname:</strong>{repo.full_name}</p>
+      <p><strong>Owner:</strong>{repo.owner.login}</p>
+      <p><strong>Description:</strong> {repo.description || "No description available"}</p>
+      <p>
+        <strong>URL:</strong>{" "}
+        
+        <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+          click for more details...
+        </a>
+        
+      </p>
+      <Link to="/">Back to Repositories</Link>
+    </div>
+  );
+}
+
+
+
+export default App;
