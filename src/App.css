@@ -1,8 +1,9 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem 1rem;
   text-align: center;
+  border: 1px solid;
 }
 
 .logo {
@@ -40,3 +41,93 @@
 .read-the-docs {
   color: #888;
 }
+
+button {
+  margin: 1em;
+  padding: 0.5em 1em;
+  font-size: 1.2em;
+  font-weight: 500;
+  background-color: #646cff;
+  color: white;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+
+button:hover {
+  background-color: #090a19;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+  background-color: #090a19;
+}
+
+button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+h1 {
+  font-size: 5.2vw;
+  line-height: 12vw;
+  border: px solid ;
+  margin-top: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
+}
+
+h1 span {
+  color: #646cff;
+  font-size: 7.2vw;
+  font-family:'Times New Roman', Times, serif ;
+}
+
+label {
+  display: block;
+  margin: 0.5em 0 0.5em;
+  font-size: 5vw;
+  font-weight: 500;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+input {
+  padding: 0.5em;
+  font-size: 1.2em;
+  border: 1px solid #646cff;
+  border-radius: 8px;
+}
+
+input:focus {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 0.5em 0;
+  border: 0.5px solid #646cff;
+  padding: 1.5em;
+  border-radius: 8px;
+  background-color: #090a19;
+  box-shadow: 5px 5px 5px #ba1b1baa;
+  
+}
+li:hover {
+  background-color: #1a1a1a;
+}
+
+a {
+  
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ee6714;
+}
+

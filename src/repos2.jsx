@@ -1,16 +1,28 @@
 import { useState, useEffect } from "react";
-import {ClipLoader} from "react-spinners";
+import { ClipLoader } from "react-spinners";
 import { Link } from "react-router-dom";
+import Navigation from "./Navigation";
 
-function GitHubRepos2() {
-  const [repos, setRepos] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [inputValue, setInputValue] = useState("");
-  const [inputValue2, setInputValue2] = useState("");
-  const [itemsPerPage, setItemsPerPage] = useState(5);
-  const [username, setUsername] = useState("okonji-vic");
+function GitHubRepos2({
+  inputValue2,
+  setInputValue2,
+  username,
+  setUsername,
+  repos,
+  setRepos,
+  loading,
+  setloading,
+  error,
+  setError,
+  inputValue,
+  setInputValue,
+  itemsPerPage,
+  setItemsPerPage,
+  currentPage,
+  setCurrentPage,
+}) {
+  
+  
   const [search, setSearch] = useState("");
 
   const handleSubmit = () => {
@@ -23,10 +35,9 @@ function GitHubRepos2() {
   };
 
   const filteredRepos = repos.filter((repo) => {
-  if (!search.trim()) return true;
+    if (!search.trim()) return true;
     return repo.name.toLowerCase().includes(search.toLowerCase());
-    
-});
+  });
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -37,36 +48,12 @@ function GitHubRepos2() {
 
   const handlePageChange = (pageNumber) => setCurrentPage(pageNumber);
 
-  useEffect(() => {
-    setLoading(true);
-    fetch(`https://api.github.com/users/${username}/repos`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setRepos(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, [username]);
-
-  if (loading) return (
-  <div className="spinner">
-  <ClipLoader color="#36d7b7" size={50} />
-  </div>
-  );
-
-  if (error) return <p>Error: {error}</p>;
-
+  
+  
   return (
     <div>
-      <h1>My GitHub Repositories</h1>
+      <Navigation />
+      <h1>{username.toUpperCase()}'S <span>GITHUB</span> REPOSITORIES </h1>
       <div>
         <label>
           Items per page:{" "}
@@ -98,7 +85,9 @@ function GitHubRepos2() {
         placeholder="Search Repositories"
       />
       <ul>
-        {filteredRepos.length === 0 && <p>No repositories found for {search}</p>}
+        {filteredRepos.length === 0 && (
+          <p style={{color: 'red'}}>No repositories found for {search}</p>
+        )}
         {currentItems.map((repo) => (
           <li key={repo.id}>
             <Link to="/about" state={{ repo }}>

@@ -50,3 +50,35 @@ function App2() {
 }
 
 export default App2;
+
+function Navigation() {
+
+  return (
+    <section className='nav-container'>
+    <NavLink to = '/'
+  className='nav-link'
+  style={({isActive}) => isActive ? {color: 'aqua', backgroundColor: 'black', border: '0.5px solid white', borderRadius: '5px'} : {color: 'white', backgroundColor: 'rgb(55,55,105)', border: 'none', borderRadius: '5px'}}
+  >
+  <h4>Rating</h4>
+  </NavLink>
+  <NavLink 
+  className='nav-link'
+  style={({isActive}) => isActive ? {color: 'aqua', backgroundColor: 'black', border: '0.5px solid white', borderRadius: '5px'} : {color: 'white', backgroundColor: 'rgb(55,55,105)', border: 'none', borderRadius: '5px'}}
+  to = '/assignment2'>
+    <h4>Grids</h4>
+  </NavLink>
+  <NavLink 
+  className='nav-link'
+  style={({isActive}) => isActive ? {color: 'aqua', backgroundColor: 'black', border: '0.5px solid white', borderRadius: '5px'} : {color: 'white', backgroundColor: 'rgb(55,55,105)', border: 'none', borderRadius: '5px'}}
+  to = '/discountapp'>
+    <h4>Discount</h4>
+  </NavLink>
+  <NavLink
+  className='nav-link'
+  style={({isActive}) => isActive ? {color: 'aqua', backgroundColor: 'black', border: '0.5px solid white', borderRadius: '5px'} : {color: 'white', backgroundColor: 'rgb(55,55,105)', border: 'none', borderRadius: '5px'}}
+  to = '/form'>
+    <h4>Form</h4>
+  </NavLink>
+    </section>
+  )
+}

@@ -1,0 +1,20 @@
+.nav-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5.5vw;
+  background-color: inherit;
+  color: white;
+  border: px solid;
+  width: 80vw;
+  
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 0px 2vw;
+  margin-left: 5vw;
+}
