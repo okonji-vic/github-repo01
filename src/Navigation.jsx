@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Navigation.css";
 
+
 function Navigation({ repos }) {
   return (
     <section className="nav-container">
@@ -15,7 +16,7 @@ function Navigation({ repos }) {
                 backgroundColor: "black",
                 border: "0.5px solid white",
                 borderRadius: "5px",
-                width: '31vw'
+                width: '20vw'
 
               }
             : {
@@ -23,7 +24,7 @@ function Navigation({ repos }) {
                 backgroundColor: "rgb(55,55,105)",
                 border: "none",
                 borderRadius: "5px",
-                width: '31vw'
+                width: '20vw'
               }
         }
       >
@@ -40,18 +41,45 @@ function Navigation({ repos }) {
                 backgroundColor: "black",
                 border: "0.5px solid white",
                 borderRadius: "5px",
-                width: "31vw",
+                width: "20vw",
               }
             : {
                 color: "white",
                 backgroundColor: "rgb(55,55,105)",
                 border: "none",
                 borderRadius: "5px",
-                width: "31vw",
+                width: "20vw",
+                
+            
+
               }
         }
       >
         <h4>About</h4>
+      </NavLink>
+      <NavLink
+        to="/error"
+        className={"nav-link"}
+        style={({ isActive }) =>
+          isActive
+            ? {
+                color: "aqua",
+                backgroundColor: "black",
+                border: "0.5px solid white",
+                borderRadius: "5px",
+                width: '20vw'
+
+              }
+            : {
+                color: "white",
+                backgroundColor: "rgb(55,55,105)",
+                border: "none",
+                borderRadius: "5px",
+                width: '20vw'
+              }
+        }
+      >
+        <h4>Error</h4>
       </NavLink>
     </section>
   );

@@ -6,6 +6,8 @@ import Navigation from "./Navigation";
 import { useState, useEffect } from "react";
 import { ClipLoader } from "react-spinners";
 import { set } from "zod";
+import ErrorComponent from "./errorboundary";
+
 
 function App() {
   const [inputValue2, setInputValue2] = useState("");
@@ -39,7 +41,7 @@ function App() {
 
       return () => {
         console.log("cleanup");
-        setRepos([]);
+        setLoading(true);
       }
   }, [username]);
 
@@ -102,7 +104,10 @@ function App() {
           />
         }
       />
+      <Route path="/error" element={< ErrorComponent/>} />
     </Routes>
+  
+
   );
 }
 
@@ -145,11 +150,12 @@ function About({
 
       {/* Display details for a single repo if `repo` is provided */}
       {repo ? (
-        <div style={{backgroundColor: '#646cff',
+        <div style={{backgroundColor: '#090a19',
         textAlign: 'left',
         padding: '10px',
-        margin: '20px',
-        borderRadius: '5px',}}>
+        margin: '20px auto',
+        borderRadius: '5px',
+        maxWidth: '600px'}}>
           <h2 >About Repository</h2>
           <p>
             <strong>Name:</strong> {repo.name}
@@ -164,8 +170,10 @@ function About({
             <strong>Description:</strong>{" "}
             {repo.description || "No description available"}
           </p>
+          <p>Creation Date: {repo.created_at.slice(0,-10)}</p>
+          <p>Time: {repo.created_at.slice(11, -1)}</p>
           <p>
-            <strong>URL:</strong>{" "}
+            <strong></strong>{" "}
             <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
               click for more details...
             </a>
@@ -179,10 +187,14 @@ function About({
           <h2>All Filtered Repositories</h2>
           {currentItems.map((filteredRepo) => (
             <div key={filteredRepo.id} style={{backgroundColor: '#090a19',
-            textAlign: 'left',
-            padding: '10vw',
-            margin: '20px',
-            borderRadius: '20vw',}}>
+            textAlign: 'center',
+            padding: '3vw 10vw',
+            margin: '3vw auto',
+            borderRadius: '20vw',
+            fontSize: '2.4vw',
+            maxWidth: '50vw',
+
+            }}>
               <p>
                 <strong>Name:</strong> {filteredRepo.name}
               </p>
@@ -197,6 +209,7 @@ function About({
                 {filteredRepo.description || "No description available"}
               </p>
               <p>Creation Date: {filteredRepo.created_at.slice(0,-10)}</p>
+              <p>Time: {filteredRepo.created_at.slice(11, -1)}</p>
               <p>
                 <strong></strong>{" "}
                 <a

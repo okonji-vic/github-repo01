@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { ClipLoader } from "react-spinners";
 import { Link } from "react-router-dom";
 import Navigation from "./Navigation";
+import "./App.css";
 
 function GitHubRepos2({
   inputValue2,
@@ -29,6 +30,9 @@ function GitHubRepos2({
     if (inputValue && !isNaN(inputValue)) {
       setItemsPerPage(Number(inputValue));
     }
+    if (inputValue < 1) {
+      setItemsPerPage(1);
+    }
     if (inputValue2.trim()) {
       setUsername(inputValue2);
     }
@@ -54,11 +58,11 @@ function GitHubRepos2({
     <div>
       <Navigation />
       <h1>{username.toUpperCase()}'S <span>GITHUB</span> REPOSITORIES </h1>
-      <div>
+      <div className="signin">
         <label>
           Items per page:{" "}
           <input
-            type="number"
+            type="text"
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="Enter a number"
@@ -75,7 +79,7 @@ function GitHubRepos2({
           />
         </label>
         <br />
-        <button onClick={handleSubmit}>Submit</button>
+        <button onClick={handleSubmit} className="button1" >Submit</button>
       </div>
       <br />
       <input
