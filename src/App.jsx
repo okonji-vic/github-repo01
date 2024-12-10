@@ -10,7 +10,7 @@ import ErrorComponent from "./errorboundary";
 
 function App() {
   const [inputValue2, setInputValue2] = useState("");
-  const [username, setUsername] = useState("okonji-vic");
+  const [username, setUsername] = useState("oluwasetemi");
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
