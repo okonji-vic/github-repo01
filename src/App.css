@@ -43,9 +43,9 @@
 }
 
 button {
-  margin: 1em;
+  margin: 8px;
   padding: 0.5em 1em;
-  font-size: 1.2em;
+  font-size: 1.0em;
   font-weight: 500;
   background-color: #646cff;
   color: white;
@@ -152,7 +152,7 @@ li {
   padding: 1.5em;
   border-radius: 8px;
   background-color: #090a19;
-  box-shadow: 5px 5px 5px #ba1b1baa;
+  box-shadow: 6px 6px 1px rgba(128, 128, 128, 0.181);
   max-width: 800px;
   
 }
@@ -163,6 +163,7 @@ li:hover {
 a {
   
   text-decoration: none;
+  color:white;
 }
 
 a:hover {
@@ -170,10 +171,14 @@ a:hover {
 }
 
 .signin {
-  border: px solid #646cff;
+  border-bottom: 10px solid #646cff;
   display: flex;
   flex-direction: column;
   align-items: center;
+  transform: rotate(deg);
+  background-color: rgba(128, 128, 128, 0.082);
+  border-radius: 48vw;
+  
   
   
 }

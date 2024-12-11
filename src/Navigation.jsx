@@ -12,7 +12,7 @@ function Navigation({ repos }) {
         style={({ isActive }) =>
           isActive
             ? {
-                color: "aqua",
+                
                 backgroundColor: "black",
                 border: "0.5px solid white",
                 borderRadius: "5px",
@@ -37,14 +37,14 @@ function Navigation({ repos }) {
         style={({ isActive }) =>
           isActive
             ? {
-                color: "aqua",
+                
                 backgroundColor: "black",
                 border: "0.5px solid white",
                 borderRadius: "5px",
                 width: "20vw",
               }
             : {
-                color: "white",
+                
                 backgroundColor: "rgb(55,55,105)",
                 border: "none",
                 borderRadius: "5px",
@@ -63,7 +63,7 @@ function Navigation({ repos }) {
         style={({ isActive }) =>
           isActive
             ? {
-                color: "aqua",
+                
                 backgroundColor: "black",
                 border: "0.5px solid white",
                 borderRadius: "5px",
@@ -71,7 +71,7 @@ function Navigation({ repos }) {
 
               }
             : {
-                color: "white",
+                
                 backgroundColor: "rgb(55,55,105)",
                 border: "none",
                 borderRadius: "5px",
