@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./navigation.css";
 
 
-function Navigation({ repos }) {
+function Navigation() {
   return (
     <section className="nav-container">
       <NavLink
@@ -33,7 +33,7 @@ function Navigation({ repos }) {
       <NavLink
         to="/about"
         className={"nav-link"}
-        state={{ repos }}
+        
         style={({ isActive }) =>
           isActive
             ? {

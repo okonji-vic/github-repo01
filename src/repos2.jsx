@@ -94,7 +94,6 @@ function GitHubRepos2({
 
   return (
     <div>
-      <Navigation />
       <h1>
         {username.toUpperCase()}'S <span>GITHUB</span> REPOSITORIES{" "}
       </h1>

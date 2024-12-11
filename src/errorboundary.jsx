@@ -1,6 +1,6 @@
 import React from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import Navigation from './Navigation';
+
 
 function FallbackComponent({ error, resetErrorBoundary }) {
 
@@ -8,7 +8,6 @@ function FallbackComponent({ error, resetErrorBoundary }) {
 
   return (
     <div role="alert">
-        <Navigation />
       <h1>Something went wrong:</h1>
       <pre>{error.message}</pre>
       <button onClick={resetErrorBoundary}>Try Again</button>
