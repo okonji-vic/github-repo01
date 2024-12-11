@@ -57,7 +57,7 @@ button {
 
 .button1 {
   margin-top: 0px;
-  width: 43vw;
+  width: 47%;
   font-size: 4vw;
 
 }
@@ -113,9 +113,9 @@ input {
 
 input:nth-last-child(3) {
   
-  font-size: 3.4vw;
+  font-size: 3.8vw;
   max-width: 850px;
-  width: 58%;
+  width: 48%;
   border-radius: 5vw;
   padding-left: 15px;
   box-sizing: border-box;
@@ -124,12 +124,12 @@ input:nth-last-child(3) {
 }
 select {
   padding: 0.5em;
-  font-size: 3.4vw;
+  font-size: 3.8vw;
   border: 1px solid #646cff;
   border-radius: 5vw;
   display: block;
-  margin: 0 1vw;
-  width: 39%;
+  margin: 0 2vw;
+  width: 47%;
   max-width: 850px;
   display: inline;
 }
