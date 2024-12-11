@@ -21,7 +21,7 @@ function Navigation({ repos }) {
               }
             : {
                 color: "white",
-                backgroundColor: "rgb(55,55,105)",
+                backgroundColor: '#646cff',
                 border: "none",
                 borderRadius: "5px",
                 width: '20vw'
@@ -45,7 +45,7 @@ function Navigation({ repos }) {
               }
             : {
                 
-                backgroundColor: "rgb(55,55,105)",
+                backgroundColor: '#646cff',
                 border: "none",
                 borderRadius: "5px",
                 width: "20vw",
@@ -72,7 +72,7 @@ function Navigation({ repos }) {
               }
             : {
                 
-                backgroundColor: "rgb(55,55,105)",
+                backgroundColor: '#646cff',
                 border: "none",
                 borderRadius: "5px",
                 width: '20vw'
