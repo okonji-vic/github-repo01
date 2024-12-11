@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Navigation from "./Navigation";
 import "./App.css";
 
 function GitHubRepos2({
