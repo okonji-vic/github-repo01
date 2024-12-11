@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import { ClipLoader } from "react-spinners";
 import ErrorComponent from "./errorboundary";
 
-
 function App() {
   const [inputValue2, setInputValue2] = useState("");
   const [username, setUsername] = useState("oluwasetemi");
@@ -17,8 +16,6 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [inputValue, setInputValue] = useState("");
   const [itemsPerPage, setItemsPerPage] = useState(5);
-  
-
 
   useEffect(() => {
     setLoading(true);
@@ -39,10 +36,10 @@ function App() {
         setLoading(false);
       });
 
-      return () => {
-        console.log("cleanup");
-        setLoading(true);
-      }
+    return () => {
+      console.log("cleanup");
+      setLoading(true);
+    };
   }, [username]);
 
   if (loading)
@@ -53,10 +50,6 @@ function App() {
     );
 
   if (error) return <p>Error: {error}</p>;
-
-
-
-  
 
   return (
     <Routes>
@@ -80,7 +73,6 @@ function App() {
             setItemsPerPage={setItemsPerPage}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
-          
           />
         }
       />
@@ -107,10 +99,8 @@ function App() {
           />
         }
       />
-      <Route path="/error" element={< ErrorComponent/>} />
+      <Route path="/error" element={<ErrorComponent />} />
     </Routes>
-  
-
   );
 }
 
@@ -133,9 +123,8 @@ function About({
   setCurrentPage,
 }) {
   const location = useLocation();
-  const { filteredRepos } = location.state || [];
   const { repo } = location.state || {};
-  
+
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
 
@@ -145,21 +134,23 @@ function About({
 
   const handlePageChange = (pageNumber) => setCurrentPage(pageNumber);
 
-
-
   return (
     <div>
       <Navigation />
 
       {/* Display details for a single repo if `repo` is provided */}
       {repo ? (
-        <div style={{backgroundColor: '#090a19',
-        textAlign: 'left',
-        padding: '10px',
-        margin: '20px auto',
-        borderRadius: '5px',
-        maxWidth: '600px'}}>
-          <h2 >About Repository</h2>
+        <div
+          style={{
+            backgroundColor: "#090a19",
+            textAlign: "left",
+            padding: "10px",
+            margin: "20px auto",
+            borderRadius: "5px",
+            maxWidth: "600px",
+          }}
+        >
+          <h2>About Repository</h2>
           <p>
             <strong>Name:</strong> {repo.name}
           </p>
@@ -173,7 +164,7 @@ function About({
             <strong>Description:</strong>{" "}
             {repo.description || "No description available"}
           </p>
-          <p>Creation Date: {repo.created_at.slice(0,-10)}</p>
+          <p>Creation Date: {repo.created_at.slice(0, -10)}</p>
           <p>Time: {repo.created_at.slice(11, -1)}</p>
           <p>
             <strong></strong>{" "}
@@ -181,23 +172,24 @@ function About({
               click for more details...
             </a>
           </p>
-          
         </div>
-        
       ) : (
         // Display all filtered repositories if `filteredRepos` is provided
         <div>
           <h2>All Filtered Repositories</h2>
           {currentItems.map((filteredRepo) => (
-            <div key={filteredRepo.id} style={{backgroundColor: '#090a19',
-            textAlign: 'center',
-            padding: '3vw 10vw',
-            margin: '3vw auto',
-            borderRadius: '20vw',
-            fontSize: '2.4vw',
-            maxWidth: '50vw',
-
-            }}>
+            <div
+              key={filteredRepo.id}
+              style={{
+                backgroundColor: "#090a19",
+                textAlign: "center",
+                padding: "3vw 10vw",
+                margin: "3vw auto",
+                borderRadius: "20vw",
+                fontSize: "2.4vw",
+                maxWidth: "50vw",
+              }}
+            >
               <p>
                 <strong>Name:</strong> {filteredRepo.name}
               </p>
@@ -211,7 +203,7 @@ function About({
                 <strong>Description:</strong>{" "}
                 {filteredRepo.description || "No description available"}
               </p>
-              <p>Creation Date: {filteredRepo.created_at.slice(0,-10)}</p>
+              <p>Creation Date: {filteredRepo.created_at.slice(0, -10)}</p>
               <p>Time: {filteredRepo.created_at.slice(11, -1)}</p>
               <p>
                 <strong></strong>{" "}
@@ -225,23 +217,23 @@ function About({
               </p>
             </div>
           ))}
-        
-        <div className="pagination">
-        {[...Array(totalPages)].map((_, index) => (
-          <button
-            key={index + 1}
-            onClick={() => handlePageChange(index + 1)}
-            className={currentPage === index + 1 ? "active" : ""}
-          >
-            {index + 1}
-          </button>
-        ))}
-      </div>
-      </div>
+
+          <div className="pagination">
+            {[...Array(totalPages)].map((_, index) => (
+              <button
+                key={index + 1}
+                onClick={() => handlePageChange(index + 1)}
+                className={currentPage === index + 1 ? "active" : ""}
+              >
+                {index + 1}
+              </button>
+            ))}
+          </div>
+        </div>
       )}
       {console.log(repos)}
       {console.log(repo)}
-      
+
       <Link to="/">Back to Repositories</Link>
     </div>
   );
