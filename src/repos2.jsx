@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
-import { ClipLoader } from "react-spinners";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navigation from "./Navigation";
 import "./App.css";
+import { set } from "zod";
 
 function GitHubRepos2({
   inputValue2,
@@ -21,11 +21,14 @@ function GitHubRepos2({
   setItemsPerPage,
   currentPage,
   setCurrentPage,
+
 }) {
   
   
   const [search, setSearch] = useState("");
 
+
+  
   const handleSubmit = () => {
     if (inputValue && !isNaN(inputValue)) {
       setItemsPerPage(Number(inputValue));
@@ -38,10 +41,33 @@ function GitHubRepos2({
     }
   };
 
+  
+  const sortRepos = (sortType) => {
+    const reposCopy = [...repos];
+
+    if (sortType === "a-z") {
+      reposCopy.sort((a, b) => a.name.localeCompare(b.name));
+    }
+    else if (sortType === "z-a") {
+      reposCopy.sort((a, b) => b.name.localeCompare(a.name));
+    }
+    else if (sortType === "newest") {
+       reposCopy.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+    }
+    else if (sortType === "oldest") {
+      reposCopy.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
+    }
+    else if (sortType === "updated") {
+      reposCopy.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+    }
+     setRepos(reposCopy);
+  };
+
   const filteredRepos = repos.filter((repo) => {
     if (!search.trim()) return true;
     return repo.name.toLowerCase().includes(search.toLowerCase());
   });
+
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -82,12 +108,23 @@ function GitHubRepos2({
         <button onClick={handleSubmit} className="button1" >Submit</button>
       </div>
       <br />
+
+      <select onChange={(e) => sortRepos(e.target.value)}>
+        <option value="">Sort Repositories</option>
+        <option value="a-z">A-Z</option>
+        <option value="z-a">Z-A</option>
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+        <option value="updated">Recently Updated</option>
+      </select>
+
       <input
         type="text"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         placeholder="Search Repositories"
       />
+      
       <ul>
         {filteredRepos.length === 0 && (
           <p style={{color: 'red'}}>No repositories found for {search}</p>

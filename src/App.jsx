@@ -17,6 +17,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [inputValue, setInputValue] = useState("");
   const [itemsPerPage, setItemsPerPage] = useState(5);
+  
 
 
   useEffect(() => {
@@ -53,6 +54,8 @@ function App() {
 
   if (error) return <p>Error: {error}</p>;
 
+
+
   
 
   return (
@@ -77,6 +80,7 @@ function App() {
             setItemsPerPage={setItemsPerPage}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
+          
           />
         }
       />
