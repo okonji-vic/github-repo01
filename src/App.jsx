@@ -105,6 +105,12 @@ function App() {
         }
       />
       <Route path="/error" element={<ErrorComponent />} />
+      <Route path="*" element={
+      <>
+        <h1>404: Page Not Found</h1>
+      <button><a href="/">Go to Home page</a></button>
+      </>
+      } />
     </Routes>
     </>
   );
