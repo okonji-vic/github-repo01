@@ -96,6 +96,7 @@ function GitHubRepos2({
       <h1>
         {username.toUpperCase()}'S <span>GITHUB</span> REPOSITORIES{" "}
       </h1>
+      <div className="container">
       <div className="signin">
         <label>
           Items per page:{" "}
@@ -122,7 +123,7 @@ function GitHubRepos2({
         </button>
       </div>
       <br />
-
+      <div>
       <select onChange={(e) => sortRepos(e.target.value)}>
         <option value="">Sort Repositories</option>
         <option value="a-z">A-Z</option>
@@ -178,6 +179,8 @@ function GitHubRepos2({
             {index + 1}
           </button>
         ))}
+         </div>
+        </div>
       </div>
     </div>
   );

@@ -9,6 +9,7 @@
   border: px solid;
   width: 90vw;
   box-sizing: border-box;
+  margin: 0 auto;
   
 
 
@@ -23,6 +24,22 @@
   padding: 0 2vw;
   height: 8vw;
   box-sizing: border-box;
+  width: 20vw;
   
 
+}
+@media (min-width: 768px) {
+  .nav-container {
+    border: px solid;
+    width: 50vw;
+    padding: 0;
+    
+  }
+  .nav-link {
+    font-size: 1vw;
+    padding: 0;
+    height: 4vw;
+    width: 10vw;
+    
+  }
 }

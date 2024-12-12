@@ -16,7 +16,7 @@ function Navigation() {
                 backgroundColor: "black",
                 border: "0.5px solid white",
                 borderRadius: "5px",
-                width: '20vw'
+                
 
               }
             : {
@@ -24,7 +24,7 @@ function Navigation() {
                 backgroundColor: '#646cff',
                 border: "none",
                 borderRadius: "5px",
-                width: '20vw'
+                
               }
         }
       >
@@ -41,14 +41,14 @@ function Navigation() {
                 backgroundColor: "black",
                 border: "0.5px solid white",
                 borderRadius: "5px",
-                width: "20vw",
+                
               }
             : {
                 
                 backgroundColor: '#646cff',
                 border: "none",
                 borderRadius: "5px",
-                width: "20vw",
+                
                 
             
 
@@ -67,7 +67,7 @@ function Navigation() {
                 backgroundColor: "black",
                 border: "0.5px solid white",
                 borderRadius: "5px",
-                width: '20vw'
+                
 
               }
             : {
@@ -75,7 +75,7 @@ function Navigation() {
                 backgroundColor: '#646cff',
                 border: "none",
                 borderRadius: "5px",
-                width: '20vw'
+                
               }
         }
       >
